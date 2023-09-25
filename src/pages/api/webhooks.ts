@@ -19,6 +19,8 @@ export const config = {
   },
 };
 
+const relevantEvents = new Set(["checkout.session.completed"]);
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
     const buf = await buffer(req);
@@ -36,9 +38,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(400).send(`Webhook error: ${err}`);
     }
 
-    const type = event.type;
+    const { type } = event;
 
-    res.status(200).json({ ok: true });
+    if (relevantEvents.has(type)) {
+      console.log("Evento recebido", event);
+    }
+
+    res.json({ received: true });
   } else {
     res.setHeader("Allow", "POST");
     res.status(405).end("Method not allowed");
