@@ -28,6 +28,14 @@ export async function saveSubscription(
       q.Create(q.Collection("subscriptions"), { data: subscription })
     );
   } else {
-    await fauna.query(q.Replace());
+    await fauna.query(
+      q.Replace(
+        q.Select(
+          "ref",
+          q.Get(q.Match(q.Index("subscription_by_id"), subscription.id))
+        ),
+        { data: subscriptionData }
+      )
+    );
   }
 }
