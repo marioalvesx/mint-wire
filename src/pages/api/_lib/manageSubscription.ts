@@ -9,7 +9,7 @@ export async function saveSubscription(
 ) {
   const userRef = await fauna.query(
     q.Select(
-      "ref ",
+      "ref",
       q.Get(q.Match(q.Index("user_by_stripe_customer_id"), customerId))
     )
   );
