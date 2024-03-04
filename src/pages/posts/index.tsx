@@ -8,7 +8,7 @@ export default function Posts() {
   return (
     <>
       <Head>
-        <title></title>
+        <title>Posts | Ignews</title>
       </Head>
 
       <main className={styles.container}>
@@ -34,19 +34,26 @@ export default function Posts() {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   const prismic = getPrismicClient();
 
-  const response = await prismic.query(
-    [Prismic.filter.at("document.type", "Post")],
-    {
-      fetch: ["post.title", "post.content"],
-      pageSize: 100,
-    }
-  );
+  try{
+    // const response = await prismic.query(
+    //   Prismic.filter.at("document.type", "Post"),
+    //   {        
+    //     pageSize: 100,
+    //   }
+    // );
 
-  console.log(response);
+    const response = await prismic.getAllByType("post", {
+      fetch: ['publication.title', 'publication.content'],
+      pageSize: 100
+    });
 
+    console.log(JSON.stringify(response, null, 2));  
+  }catch(error) {
+    console.log(error);
+  }
   return {
     props: {},
   };

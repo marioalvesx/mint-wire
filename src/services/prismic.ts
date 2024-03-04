@@ -1,9 +1,12 @@
-import Prismic from "@prismicio/client";
+import * as prismic from "@prismicio/client";
 
 export function getPrismicClient() {
-  const prismic = Prismic.createClient("mynewss", {
-    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
-  }) as any;
+  const prismicClient = prismic.createClient(
+    process.env.PRISMIC_ENDPOINT!,
+    {
+      accessToken: process.env.PRISMIC_ACCESS_TOKEN || '',           
+    }
+    );
+    return prismicClient;
 
-  return prismic;
 }

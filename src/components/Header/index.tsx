@@ -8,14 +8,14 @@ export function Header() {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
-        <img src="/images/logo.svg" alt="ig.news" />
+        <img src="/images/logo.svg" alt="ig.newss" />
         <nav>
-          <ActiveLink activeClassName={styles.active} href="/">
-            <a>Home</a>
-          </ActiveLink>
-          <ActiveLink activeClassName={styles.active} href="/posts">
-            <a>Posts</a>
-          </ActiveLink>
+          <Link className={styles.active} href="/">
+            Home
+          </Link>
+          <Link href="/posts">
+            Posts
+          </Link>
         </nav>
         <SignIn />
       </div>
