@@ -5,17 +5,19 @@ import { useRouter } from "next/router";
 import { ActiveLink } from "../activeLink";
 
 export function Header() {
+  const { asPath } = useRouter();
+
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
         <img src="/images/logo.svg" alt="ig.newss" />
         <nav>
-          <Link className={styles.active} href="/">
-            Home
-          </Link>
-          <Link href="/posts">
-            Posts
-          </Link>
+          <ActiveLink legacyBehavior activeClassName={styles.active} href="/">
+            <a>Home</a>
+          </ActiveLink>
+          <ActiveLink legacyBehavior activeClassName={styles.active} href="/posts" prefetch>
+          <a>Posts</a>
+          </ActiveLink>
         </nav>
         <SignIn />
       </div>

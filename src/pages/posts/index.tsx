@@ -52,7 +52,6 @@ export const getStaticProps: GetStaticProps = async () => {
     console.log(JSON.stringify(response, null, 2));  
     
     const posts = response.map(post => {
-      console.log("OLAAA", post.data);
       
       return {
         slug: post.uid,
