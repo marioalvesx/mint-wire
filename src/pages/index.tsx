@@ -1,12 +1,9 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import { Inter } from "next/font/google";
 
 import styles from "./home.module.scss";
 import { Subscribe } from "@/components/Subscribe";
 import { stripe } from "@/services/stripe";
-
-const inter = Inter({ subsets: ["latin"] });
 
 interface HomeProps {
   product: {
