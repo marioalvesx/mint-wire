@@ -10,13 +10,18 @@ export function Header() {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
-        <img src="/images/logo.svg" alt="ig.newss" />
+        <img src="/images/logo.svg" width={120} alt="mint.wire" />
         <nav>
           <ActiveLink legacyBehavior activeClassName={styles.active} href="/">
             <a>Home</a>
           </ActiveLink>
-          <ActiveLink legacyBehavior activeClassName={styles.active} href="/posts" prefetch>
-          <a>Posts</a>
+          <ActiveLink
+            legacyBehavior
+            activeClassName={styles.active}
+            href="/posts"
+            prefetch
+          >
+            <a>Posts</a>
           </ActiveLink>
         </nav>
         <SignIn />

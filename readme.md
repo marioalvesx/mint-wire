@@ -1,13 +1,40 @@
-## ig.news
+# MintWire
 
-IG.News is a blog with this technologies:
+![Header](./public/assets/mintwire-homepage.png)
 
-- Next.js.
-- Prismic CMS.
-- Stripe for payments.
+## 🪙 About
 
-This project is only for study purposes and does not have any comercial service.
+MintWire is a modern platform to follow news and analysis about the world of fiat currencies and the financial market. .
 
-#### Home Page:
+**Official site:** https://mintwire.vercel.app/
 
-![Header](./public/assets/ignews-homepage.png)
+---
+
+## ✨ Features
+
+- **Premium Subscription with Stripe:** Secure and recurring payments for full content access.
+- **Authentication with NextAuth:** Simplified login via GitHub.
+- **Integration with Prismic CMS:** Fully managed and dynamic content.
+
+---
+
+## 🚀 Technologies
+
+This project was developed using the following technologies:
+
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [NextAuth](https://next-auth.js.org/)
+- [Stripe](https://stripe.com/)
+- [Prismic CMS](https://prismic.io/)
+
+---
+
+## 🔧 Getting Started
+
+### Prerequisites
+
+- Node.js (version 18 or higher)
+- pnpm or npm
+- Stripe account (for payments)
+- Prismic CMS account created.

@@ -11,6 +11,6 @@ if (!stripeApiKey) {
 export const stripe = new Stripe(stripeApiKey, {
   apiVersion: "2022-11-15",
   appInfo: {
-    name: "Ignews",
+    name: "MintWire",
   },
 });

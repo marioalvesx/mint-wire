@@ -16,14 +16,14 @@ export default function Home({ product }: HomeProps) {
   return (
     <>
       <Head>
-        <title>Home | ig.news</title>
+        <title>Home | mint wire</title>
       </Head>
 
       <main className={styles.contentContainer}>
         <section className={styles.hero}>
           <span>👏 Hey, welcome</span>
           <h1>
-            News about the <span>React</span> world.
+            News about the <span>Fiat Currency</span> world.
           </h1>
           <p>
             Get access to all the publications <br />
@@ -32,7 +32,12 @@ export default function Home({ product }: HomeProps) {
           <Subscribe priceId={product.priceId} />
         </section>
 
-        <img src="/images/avatar.svg" alt="Girl coding" />
+        <img
+          src="/images/girl-chart.png"
+          alt="Girl coding"
+          width={600}
+          height={700}
+        />
       </main>
     </>
   );

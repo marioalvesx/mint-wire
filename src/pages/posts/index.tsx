@@ -16,21 +16,21 @@ type Post = {
 };
 
 interface PostsProps {
-  posts: Post[]
+  posts: Post[];
 }
 
 export default function Posts({ posts }: PostsProps) {
   console.log(posts);
-  
+
   return (
     <>
       <Head>
-        <title>Posts | Ignews</title>
+        <title>Posts | Mint Wire</title>
       </Head>
 
       <main className={styles.container}>
         <div className={styles.posts}>
-          {posts.map(post => (            
+          {posts.map((post) => (
             <Link legacyBehavior href={`/posts/${post.slug}`}>
               <a key={post.slug}>
                 <time>{post.updatedAt}</time>
@@ -38,7 +38,7 @@ export default function Posts({ posts }: PostsProps) {
                 <p>{post.excerpt}</p>
               </a>
             </Link>
-          ))}           
+          ))}
         </div>
       </main>
     </>
@@ -48,29 +48,34 @@ export default function Posts({ posts }: PostsProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
 
-    const response = await prismic.getAllByType("post", {
-      fetch: ['publication.title', 'publication.content'],
-      pageSize: 100
-    });
+  const response = await prismic.getAllByType("post", {
+    fetch: ["publication.title", "publication.content"],
+    pageSize: 100,
+  });
 
-    console.log(JSON.stringify(response, null, 2));  
-    
-    const posts = response.map(post => {
-      
-      return {
-        slug: post.uid,
-        title: RichText.asText(post.data.title),
-        excerpt: post.data.content1.find((content: { type: any; }) => content.type === 'paragraph')?.text ?? '',
-        updatedAt: new Date(post.last_publication_date).toLocaleDateString('pt-BR', {
-          day: '2-digit',
-          month: 'long',
-          year: "numeric"
-        })
-      };
-    });
+  console.log(JSON.stringify(response, null, 2));
 
-    console.log(JSON.stringify(response, null, 2));
+  const posts = response.map((post) => {
     return {
-      props: {posts},
+      slug: post.uid,
+      title: RichText.asText(post.data.title),
+      excerpt:
+        post.data.content1.find(
+          (content: { type: any }) => content.type === "paragraph"
+        )?.text ?? "",
+      updatedAt: new Date(post.last_publication_date).toLocaleDateString(
+        "pt-BR",
+        {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        }
+      ),
     };
+  });
+
+  console.log(JSON.stringify(response, null, 2));
+  return {
+    props: { posts },
+  };
 };
