@@ -6,7 +6,7 @@
 
 MintWire is a modern platform to follow news and analysis about the world of fiat currencies and the financial market. .
 
-**Official site:** https://mintwire.vercel.app/
+**Official site:** https://mint-wire.vercel.app/
 
 ---
 
