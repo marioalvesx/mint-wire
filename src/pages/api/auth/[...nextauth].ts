@@ -6,9 +6,10 @@ export default NextAuth({
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID!,
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-      authorization: { params: { scope: "read:user, user:email" } },
+      authorization: { params: { scope: "read:user user:email" } },
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
 
   // jwt: {
   //   secret: process.env.SIGNING_KEY,
